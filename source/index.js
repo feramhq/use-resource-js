@@ -2,7 +2,7 @@ class Disposable {
 
   constructor () { }
 
-  dispose () { }
+  async dispose () { }
 }
 
 class Resource extends Disposable {
@@ -25,10 +25,10 @@ class Resource extends Disposable {
 async function using (resource, closure) {
   try {
     if (!closure) throw new Error('Parameter closure is not set')
-    if (!resource.disposeFunction) {
-      throw new Error('Parameter resource must be of type Resource')
+    if (!resource.dispose) {
+      throw new Error('Parameter resource must implement `async dispose () `')
     }
-    return await closure(resource.resourceObject)
+    return await closure(resource)
   }
   finally {
     try {
