@@ -2,7 +2,7 @@
   "name": "use-resource",
   "version": "1.0.0",
   "description": "A way to deal with resources that need disposing after usage (e.g. network connection)",
-  "main": "index.js",
+  "main": "source/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
